@@ -1,0 +1,173 @@
+{
+  "languageModel": {
+    "types": [
+      {
+        "name": "NoteName",
+        "values": [
+          {
+            "id": null,
+            "name": {
+              "value": "shopping list",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "to do",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "my notebook",
+              "synonyms": []
+            }
+          }
+        ]
+      },
+      {
+        "name": "NoteText",
+        "values": [
+          {
+            "id": null,
+            "name": {
+              "value": "toilet paper",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "pencils",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "hamburger",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "bag of chips",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "whole wheat flour",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "go to the store",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "call joan",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "buy a new card",
+              "synonyms": []
+            }
+          }
+        ]
+      }
+    ],
+    "intents": [
+      {
+        "name": "AddNoteText",
+        "samples": [
+          "add {text} to my {note} list"
+        ],
+        "slots": [
+          {
+            "name": "text",
+            "type": "NoteText"
+          },
+          {
+            "name": "note",
+            "type": "NoteName"
+          }
+        ]
+      },
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      }
+    ],
+    "invocationName": "my notebook"
+  },
+  "prompts": [
+    {
+      "id": "Elicit.Intent-AddNoteText.IntentSlot-text",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What text do you want to add?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-AddNoteText.IntentSlot-note",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Which note do you want to add this to?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "intents": [
+      {
+        "name": "AddNoteText",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "text",
+            "type": "NoteText",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-AddNoteText.IntentSlot-text"
+            }
+          },
+          {
+            "name": "note",
+            "type": "NoteName",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-AddNoteText.IntentSlot-note"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,14 +1,11 @@
 SRC	:= notetaker.py
-VENDOR	:= v/lib/python3.6/site-packages
-FILES	:= $(SRC) $(VENDOR)
-
 DEST	:= notetaker.zip
 
 .PHONY: all
 all: $(DEST)
 
 $(DEST): $(SRC)
-	./zip.sh -FSro $(DEST) $(SRC) $(VENDOR)
+	./zip.sh -FSro $(DEST) $(SRC)
 
 .PHONY: upload
 upload: $(DEST)
